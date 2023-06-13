@@ -15,7 +15,7 @@ env:
   PYTHON_VERSION: '3.9' # set this to the python version to use (supports 3.6, 3.7, 3.8)
   AZURE_SUBSCRIPTION_ID: d1e8559b-d8d5-4b6b-9337-2e334a125b53
   AZURE_CLIENT_ID: 88c333da-f62c-43fb-b0ab-47eef8892726
-  AZURE_CLIENT_SECRET: dwD8Q~NFtbi3LxvU7MtZzm2GHx4gtleSl5Nf~csO
+  AZURE_CLIENT_SECRET: "dwD8Q~NFtbi3LxvU7MtZzm2GHx4gtleSl5Nf~csO"
   AZURE_TENANT_ID: 3f3eba09-badc-486c-8592-b7449bebd373
   
     
