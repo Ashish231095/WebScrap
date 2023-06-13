@@ -30,7 +30,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      - name: Azure Login
+        uses: azure/login@v1
       - name: Install dependencies
         uses: azure/functions-action@v1
         with:
