@@ -13,10 +13,10 @@ on:
 env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.9' # set this to the python version to use (supports 3.6, 3.7, 3.8)
-  # AZURE_SUBSCRIPTION_ID: "d1e8559b-d8d5-4b6b-9337-2e334a125b53"
-#  AZURE_CLIENT_ID: "88c333da-f62c-43fb-b0ab-47eef8892726"
-#  AZURE_CLIENT_SECRET: "dwD8Q~NFtbi3LxvU7MtZzm2GHx4gtleSl5Nf~csO"
- # AZURE_TENANT_ID: "3f3eba09-badc-486c-8592-b7449bebd373"
+  AZURE_SUBSCRIPTION_ID: "31d17010-d0f8-4353-b203-569ca5c17380"
+  AZURE_CLIENT_ID: "bf4b485d-6b78-44af-9dde-5a5972df14be"
+  AZURE_CLIENT_SECRET: "FHQ8Q~kgxECzHt3j__54xf0F~OAQ36.KeRtZJcQz"
+  AZURE_TENANT_ID: "cd3779f6-2af9-4aee-be9a-45e131119f0b"
   
     
     
@@ -27,18 +27,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-    #  - name: Install Azure CLI
-    #    run: |
-    #      curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-    #  - name: Log in to Azure
-    #    run: |
-   #       az login --service-principal -u ${{ env.AZURE_CLIENT_ID }} -p ${{ env.AZURE_CLIENT_SECRET }} --tenant ${{ env.AZURE_TENANT_ID }}
+      - name: Log in to Azure
+        run: |
+          az login --service-principal -u ${{ env.AZURE_CLIENT_ID }} -p ${{ env.AZURE_CLIENT_SECRET }} --tenant ${{ env.AZURE_TENANT_ID }}
  
              
-   #   - name: Set Azure subscription
-   #     run: |
-   #         az account set --subscription ${{ env.AZURE_SUBSCRIPTION_ID }}
+      - name: Set Azure subscription
+        run: |
+           az account set --subscription ${{ env.AZURE_SUBSCRIPTION_ID }}
       
 
       # Add more steps here to execute Azure CLI commands
@@ -56,8 +56,8 @@ jobs:
           python -m venv venv
           source venv/bin/activate
       
-    #  - name: Azure Login
-   #   uses: azure/login@v1
+      - name: Azure Login
+        uses: azure/login@v1
       - name: Install dependencies
         uses: azure/functions-action@v1
         with:
