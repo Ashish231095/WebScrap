@@ -32,7 +32,11 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        uses: azure/functions-action@v1
+        with:
+            app-name: your-function-app-name
+            package: ${{ github.workspace }}/Severeweather/requirements.txt
+            run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here
 
