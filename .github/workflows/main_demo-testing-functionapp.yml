@@ -30,6 +30,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
       - name: Azure Login
         uses: azure/login@v1
       - name: Install dependencies
