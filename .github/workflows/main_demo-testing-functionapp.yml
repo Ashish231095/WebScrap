@@ -20,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
-        with:
-            azcliversion: 'latest'
-            creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+          az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Checkout repository
         uses: actions/checkout@v2
 
