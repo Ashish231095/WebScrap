@@ -14,15 +14,16 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.9' # set this to the python version to use (supports 3.6, 3.7, 3.8)
     
-    - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
-        with:
-            azcliversion: 'latest'
-            creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
+        with:
+            azcliversion: 'latest'
+            creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: Checkout repository
         uses: actions/checkout@v2
 
