@@ -20,10 +20,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      
+      - name: Checkout repository
+        uses: actions/checkout@v2
         
-      - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
       - name: Log in to Azure
         run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
@@ -31,8 +33,7 @@ jobs:
       - name: Set Azure subscription
         run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      
 
       # Add more steps here to execute Azure CLI commands
 
